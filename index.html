@@ -24,14 +24,83 @@
         }
         
         #space {
-            margin: 5em;
+            margin: 2em;
         }
     </style>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
 
 <body>
-    <h1>Windy Li</h1>
+    <h1 class="animated headshake infinite">Windy Li</h1>
+    <div id="space"></div>
+    <style>
+    .headshot {
+            background-color: aqua;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .profile1,
+        .profile2 {
+            background-color: blueviolet;
+            margin: 2px;
+        }
+        
+        @media (min-width: 400px) {
+            #begin {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: /* prettier-ignore */
+                "hs p1"
+                /* prettier-ignore */
+                "hs p2";
+            }
+            .headshot {
+                grid-area: hs;
+            }
+            .profile1 {
+                grid-area: p1;
+            }
+            .profile2 {
+                grid-area: p2;
+            }
+        }
+        
+        @media (min-width: 800px) {
+            #begin {
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-template-rows: auto;
+                grid-template-areas: /* prettier-ignore */
+                "p1 hs p2"
+            }
+        }
+        
+        .headshot {
+            grid-area: hs;
+        }
+        
+        .profile1 {
+            grid-area: p1;
+        }
+        
+        .profile2 {
+            grid-area: p2;
+        }
+    }
+    </style>
+
+    <div id="begin">
+        <div class="headshot">headshot</div>
+        <div class="profile1">profile 1</div>
+        <div class="profile2">profile 2</div>
+    </div>
+    <div id="space"></div>
     <style>
         .photo {
             min-width: 100px;
@@ -41,25 +110,17 @@
             margin: 5px;
         }
         
+        @media (min-width: 400px) {
+            .container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
         @media (min-width:700px) {
             .container {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
-            }
-        }
-        
-        @media (min-width: 400px;
-        max-width: 700px) {
-            .container {
-                display: grid;
-                grid-template-columns: 1fr 1fr
-            }
-        }
-        
-        @media (max-width: 400px) {
-            .container {
-                display: grid;
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -72,7 +133,6 @@
         <div class="photo">Photo</div>
         <div class="photo">Photo</div>
     </div>
-    <div id="space"></div>
     <h2>Introduction</h2>
     <p>Windy is a cute girl from Southwest China</p>
     <h2>Projects</h2>
