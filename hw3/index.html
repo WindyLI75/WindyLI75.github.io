@@ -1,0 +1,68 @@
+<h1>Want to travel?</h1>
+
+<h2>Want to take a rest from the busy work and go somwhere for travel, but but don't know how to plan the budget?</h2>
+<h2>Just key in your preference on the budget, the features of the destination you like, and you will get some ideas.</h2>
+<br> How many people are in yout group<br>
+<input id="people" type="number" value="">
+<br>
+<br>
+<br> How many days do you have for the trip?<br>
+<label><input id="duration" name="duration" type="radio" value="1">only 1</label>
+<label><input id="duration" name="duration" type="radio" value="3">1 - 3</label>
+<label><input id="duration" name="duration" type="radio" value="5">3 - 5</label>
+<label><input id="duration" name="duration" type="radio" value="7">5 - 7</label>
+<label><input id="duration" name="duration" type="radio" value="10">7 and more</label>
+
+<br>
+<br> Do you want to go abroad?<br>
+<label><input id="aborad" name="aborad" type="radio" value="3">Yes</label><br>
+<label><input id="aborad" name="aborad" type="radio" value="1">No</label><br>
+
+<br>
+
+<button id="cal">Get some idea</button>
+<br>
+<p>Reminder: it may take seconds to generate the result</p>
+
+<br>
+<h2>You may need:</h2>
+
+<p><input id="budget" type="number" value=""> yuan</p>
+
+<input id="image" type="image" src='https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3054599579,2206540285&fm=26&gp=0.jpg' width="auto" height="auto">
+
+
+
+<script>
+    // a = document.getElementById(" num1 ").value
+
+    // b = document.getElementById("num2 ").value
+
+    // result = (+a) + (+b)
+
+
+
+    function calculate() {
+
+        a = +document.getElementById("people").value
+
+        b = +document.getElementById("duration").value
+
+        c = +document.getElementById("aborad").value
+
+        result = (a) * (b) * (c) * 500
+        document.getElementById("budget").value = result
+    }
+
+
+
+    document.getElementById("cal").addEventListener('click', calculate)
+
+
+
+    // result = Math.pow(a, b)
+
+    // console.log('result:')
+
+    // console.log(result)
+</script>
