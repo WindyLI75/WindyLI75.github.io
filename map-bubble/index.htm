@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="../Highmaps-7/code/highmaps.js"></script>
     <script src="../Highmaps-7/code/modules/data.js"></script>
@@ -24,24 +25,23 @@
 
 
     <script type="text/javascript">
-        $.getJSON('world-population.json', function(data) {
+        // Prepare random data
+        var data = [
+            ['hk', 1000],
+            ['kl', 210],
+            ['nt', 300]
+        ];
 
+        $.getJSON('map.geojson', function(geojson) {
+
+            // Initiate the chart
             Highcharts.mapChart('container', {
                 chart: {
-                    borderWidth: 1,
-                    map: 'custom/world'
+                    map: geojson
                 },
 
                 title: {
-                    text: 'World population 2013 by country'
-                },
-
-                subtitle: {
-                    text: 'Demo of Highcharts map with bubbles'
-                },
-
-                legend: {
-                    enabled: false
+                    text: 'GeoJSON in Highmaps'
                 },
 
                 mapNavigation: {
@@ -51,19 +51,23 @@
                     }
                 },
 
+                colorAxis: {
+                    tickPixelInterval: 100
+                },
+
                 series: [{
-                    name: 'Countries',
-                    color: '#E0E0E0',
-                    enableMouseTracking: false
-                }, {
-                    type: 'mapbubble',
-                    name: 'Population 2016',
-                    joinBy: ['iso-a3', 'code3'],
                     data: data,
-                    minSize: 4,
-                    maxSize: '12%',
-                    tooltip: {
-                        pointFormat: '{point.properties.hc-a2}: {point.z} thousands'
+                    keys: ['name', 'value'],
+                    joinBy: 'name',
+                    name: 'Random data',
+                    states: {
+                        hover: {
+                            color: '#a4edba'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.properties.postal}'
                     }
                 }]
             });
