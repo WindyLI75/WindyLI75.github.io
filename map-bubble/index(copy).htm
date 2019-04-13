@@ -72,11 +72,15 @@
                     tickPixelInterval: 100
                 },
 
+                tooltip: {
+                    pointFormat: '{point.properties.DC_ENG}: <b>{point.value}</b><br/>',
+                },
+
                 series: [{
                     data: data,
                     keys: ['DC_ENG', 'value'],
                     joinBy: 'DC_ENG',
-                    name: 'Working Population',
+                    name: 'working population',
                     states: {
                         hover: {
                             color: '#a4edba'
