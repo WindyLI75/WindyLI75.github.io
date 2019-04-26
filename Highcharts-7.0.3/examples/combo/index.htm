@@ -21,12 +21,26 @@
 
 
     <script type="text/javascript">
+        var max = 96;
+
         Highcharts.chart('container', {
             title: {
                 text: 'Ranking of AgeWatch Index for Hong Kong 2014-2016'
             },
             xAxis: {
-                categories: ['2014', '2015', '2016', ]
+                categories: ['2014', '2015', '2016', ],
+                title: {
+                    text: 'Year',
+                },
+            },
+            yAxis: {
+                min: 0,
+                max: max,
+                tickInterval: 2,
+                reversed: true,
+                title: {
+                    text: 'Ranking',
+                },
             },
             labels: {
                 items: [{
@@ -40,15 +54,55 @@
             series: [{
                 type: 'column',
                 name: 'Income security',
-                data: [75, 61, 62]
+                data: [{
+                    y: 75,
+                    low: max,
+                }, {
+                    y: 61,
+                    low: max,
+                }, {
+                    y: 62,
+                    low: max
+                }],
             }, {
                 type: 'column',
                 name: 'Health status',
-                data: [9, 10, 11]
+                data: [{
+                    y: 9,
+                    low: max,
+                }, {
+                    y: 10,
+                    low: max,
+                }, {
+                    y: 11,
+                    low: max
+                }]
             }, {
                 type: 'column',
                 name: 'Capability',
-                data: [33, 40, 36]
+                data: [{
+                    y: 33,
+                    low: max,
+                }, {
+                    y: 40,
+                    low: max,
+                }, {
+                    y: 36,
+                    low: max
+                }]
+            }, {
+                type: 'column',
+                name: 'Enabling Environment',
+                data: [{
+                    y: 4,
+                    low: max,
+                }, {
+                    y: 1,
+                    low: max,
+                }, {
+                    y: 8,
+                    low: max
+                }]
             }, {
                 type: 'spline',
                 name: 'Overall',
